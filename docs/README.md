@@ -1,4 +1,4 @@
-#FacesBookNode
+# faces-book-node
 - Look at a person's face and try to remember their name.
 - Hover the cursor over their face.
 - Their name will appear.
