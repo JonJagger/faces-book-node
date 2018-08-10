@@ -1,0 +1,20 @@
+{
+  "name": "FacesBook",
+  "version": "1.0.0",
+  "description": "a simple app to help remember people's names",
+  "author": "Jon Jagger <jon@jaggersoft.com>",
+  "license": "BSD-2-Clause",
+  "repository" : {
+    "type": "git",
+    "url": "https://bitbucket.org/JonJagger/faces-book-node"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.1",
+    "ejs": "*",
+    "glob": "*"
+  }
+}
