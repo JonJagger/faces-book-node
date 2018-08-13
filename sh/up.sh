@@ -33,4 +33,7 @@ docker run \
     ${FACES_BOOK_IMAGE} \
       sh -c "npm start"
 
+# This is the container up...
 wait_till_up ${FACES_BOOK_CONTAINER}
+# But it might be ready yet. So crude wait is good enough for now...
+sleep 2

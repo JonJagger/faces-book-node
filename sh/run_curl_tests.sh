@@ -3,7 +3,7 @@
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
 source ${MY_DIR}/.env
 
-readonly IP=${1:-0.0.0.0}
+readonly IP=${1:-localhost}
 readonly CURL_LOG="/tmp/faces-book-curl.log"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -24,9 +24,6 @@ curl_route()
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-sleep 2
-docker container ls -a
 
 echo "faces-book: Running unit tests..."
 curl_route "/test"

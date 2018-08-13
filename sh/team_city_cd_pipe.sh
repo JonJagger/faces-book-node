@@ -21,5 +21,6 @@ docker run \
       sh -c "./faces-book.sh"
 
 sleep 2
+
 docker container ls
 docker logs faces-book
