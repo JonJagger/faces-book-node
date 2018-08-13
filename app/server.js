@@ -26,7 +26,11 @@ app.get("/shuffle", (req,res) => {
 });
 
 app.get("/test", (req,res) => {
-  res.json({"runTests":runTests()});
+  res.json({runTests:runTests()});
+});
+
+app.get("/sha", (req,res) => {
+  res.json({sha:process.env.SHA});
 });
 
 const PORT = process.env.FACES_BOOK_PORT;
