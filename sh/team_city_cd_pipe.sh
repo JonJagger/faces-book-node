@@ -2,6 +2,7 @@
 set -e
 
 # This will need the .env SCP'd onto the delopyment VM
+# Means each team will need their own folder
 
 
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
