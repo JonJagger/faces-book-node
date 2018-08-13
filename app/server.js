@@ -5,6 +5,7 @@ const ejs = require("ejs");
 const names = require("./public/js/names.js");
 const shuffled = require("./public/js/shuffled.js");
 const runTests = require("./public/js/tests/run.js");
+const fs = require("fs");
 
 const app = express();
 
@@ -30,7 +31,7 @@ app.get("/test", (req,res) => {
 });
 
 app.get("/sha", (req,res) => {
-  res.json({sha:process.env.SHA});
+  res.json({sha:fs.readFileSync(".sha","utf8")});
 });
 
 const PORT = process.env.FACES_BOOK_PORT;

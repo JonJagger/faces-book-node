@@ -29,7 +29,6 @@ docker run \
   --detach \
   --name ${FACES_BOOK_CONTAINER} \
   --publish ${FACES_BOOK_PORT}:${FACES_BOOK_PORT} \
-  --env SHA=$(git rev-parse HEAD) \
   --env FACES_BOOK_PORT=${FACES_BOOK_PORT} \
     ${FACES_BOOK_IMAGE} \
       sh -c "npm start"
