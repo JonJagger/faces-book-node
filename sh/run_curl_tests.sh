@@ -3,15 +3,15 @@
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
 source ${MY_DIR}/.env
 
-readonly IP=${1:-localhost}
+readonly IP=${1:-0.0.0.0}
 readonly CURL_LOG="/tmp/faces-book-curl.log"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 curl_route()
 {
-  echo "cURLing... http://${IP}:${FACES_BOOK_PORT}${route}"
   route=$1
+  echo "cURLing... http://${IP}:${FACES_BOOK_PORT}${route}"
   curl -i -f -X GET "http://${IP}:${FACES_BOOK_PORT}${route}" &> ${CURL_LOG}
   status=$?
   if [ "${status}" -eq "0" ]; then
