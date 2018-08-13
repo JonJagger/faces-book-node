@@ -1,9 +1,9 @@
 #!/bin/bash
 
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
+source ${MY_DIR}/.env
 
-readonly PORT=${1:-80}
-readonly IP=${2:-localhost}
+readonly IP=${1:-localhost}
 readonly CURL_LOG="/tmp/faces-book-curl.log"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -11,7 +11,7 @@ readonly CURL_LOG="/tmp/faces-book-curl.log"
 curl_route()
 {
   route=$1
-  curl -i -f -X GET "http://${IP}:${PORT}${route}" &> ${CURL_LOG}
+  curl -i -f -X GET "http://${IP}:${FACES_BOOK_PORT}${route}" &> ${CURL_LOG}
   status=$?
   if [ "${status}" -eq "0" ]; then
     echo "PASS ${status} ${route}"

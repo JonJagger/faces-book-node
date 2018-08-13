@@ -29,6 +29,6 @@ app.get("/test", (req,res) => {
   res.json({"runTests":runTests()});
 });
 
-const PORT = process.env.NODE_PORT;
+const PORT = process.env.FACES_BOOK_PORT;
 app.listen(PORT);
 console.log(`Running on port ${PORT}`);

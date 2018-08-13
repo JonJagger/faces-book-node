@@ -4,8 +4,6 @@ set -e
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
 source ${MY_DIR}/.env
 
-readonly PORT=${1:-${FACES_BOOK_PORT}}
-
 # - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 wait_till_up() # $1==container_name
@@ -30,8 +28,8 @@ wait_till_up() # $1==container_name
 docker run \
   --detach \
   --name ${FACES_BOOK_CONTAINER} \
-  --publish ${PORT}:${PORT} \
-  --env NODE_PORT=${PORT} \
+  --publish ${FACES_BOOK_PORT}:${FACES_BOOK_PORT} \
+  --env FACES_BOOK_PORT=${FACES_BOOK_PORT} \
     ${FACES_BOOK_IMAGE} \
       sh -c "npm start"
 
