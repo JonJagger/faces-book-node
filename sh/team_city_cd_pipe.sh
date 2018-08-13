@@ -1,22 +1,19 @@
 #!/bin/bash
 set -ex
 
-# This script (along with .env) must be SCP'd onto the
-# deployment VM into a unique folder/
+# This script (along with .env) are SCP'd onto
+# the deployment VM into a unique folder/
 
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
 source ${MY_DIR}/.env
 
+# Get the new image
 docker pull ${DOCKER_REGISTRY_URL}/${FACES_BOOK_IMAGE}
 
+# Bring down the current container
 docker rm --force ${FACES_BOOK_CONTAINER} &> /dev/null || true
 
-docker rm --force faces-book
-
-sleep 5 # wait for port to be released? What's got port 9001 ?
-
-docker container ls -a
-
+# Bring up the new container
 docker run \
   --detach \
   --name ${FACES_BOOK_CONTAINER} \
@@ -25,6 +22,7 @@ docker run \
     ${DOCKER_REGISTRY_URL}/${FACES_BOOK_IMAGE} \
       sh -c "./faces-book.sh"
 
+# Crude readyness wait
 sleep 2
 
-docker logs faces-book
+docker logs ${FACES_BOOK_CONTAINER}
