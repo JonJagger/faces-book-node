@@ -11,6 +11,8 @@ docker pull ${DOCKER_REGISTRY_URL}/${FACES_BOOK_IMAGE}
 
 docker rm --force ${FACES_BOOK_CONTAINER} &> /dev/null || true
 
+docker rm --force faces-book
+
 sleep 5 # wait for port to be released? What's got port 9001 ?
 
 docker container ls -a
