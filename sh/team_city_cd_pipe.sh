@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -ex
 
 # This script (along with .env) must be SCP'd onto the
 # deployment VM into a unique folder/
