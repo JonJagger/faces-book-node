@@ -1,5 +1,4 @@
 #!/bin/bash
-set -x
 
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
 source ${MY_DIR}/.env
