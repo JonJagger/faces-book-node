@@ -19,8 +19,7 @@ docker run \
   --name ${FACES_BOOK_CONTAINER} \
   --publish ${FACES_BOOK_PORT}:${FACES_BOOK_PORT} \
   --env FACES_BOOK_PORT=${FACES_BOOK_PORT} \
-    ${DOCKER_REGISTRY_URL}/${FACES_BOOK_IMAGE} \
-      sh -c "./faces-book.sh"
+    ${DOCKER_REGISTRY_URL}/${FACES_BOOK_IMAGE}
 
 # Crude readyness wait
 sleep 2
