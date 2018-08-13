@@ -26,7 +26,7 @@ sleep 2
 
 docker logs ${FACES_BOOK_CONTAINER}
 
-# Simply sanity check
+# Simple sanity check
 readonly CURL_LOG="/tmp/faces-book-curl.log"
 curl -i -f -X GET "http://localhost:${FACES_BOOK_PORT}/" &> ${CURL_LOG}
 cat ${CURL_LOG}
