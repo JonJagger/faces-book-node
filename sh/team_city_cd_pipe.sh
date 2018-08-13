@@ -11,6 +11,8 @@ docker pull ${DOCKER_REGISTRY_URL}/${FACES_BOOK_IMAGE}
 
 docker rm --force ${FACES_BOOK_CONTAINER} &> /dev/null || true
 
+sleep 5 # wait for port to be released?
+
 docker run \
   --detach \
   --name ${FACES_BOOK_CONTAINER} \
