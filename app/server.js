@@ -30,8 +30,11 @@ app.get("/test", (req,res) => {
   res.json({runTests:runTests()});
 });
 
-app.get("/sha", (req,res) => {
-  res.json({sha:fs.readFileSync(".sha","utf8")});
+app.get("/identity", (req,res) => {
+  res.json({
+    url:fs.readFileSync(".repo_url", "utf8"),
+    sha:fs.readFileSync(".repo_sha", "utf8")
+  });
 });
 
 const PORT = process.env.FACES_BOOK_PORT;

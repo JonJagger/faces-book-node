@@ -28,7 +28,7 @@ curl_route()
 
 echo "faces-book: Running unit tests..."
 curl_route "/test"
-curl_route "/sha"
+curl_route "/identity"
 
 echo "faces-book: Checking routes are 200..."
 curl_route "/"
