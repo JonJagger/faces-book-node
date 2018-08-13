@@ -25,6 +25,9 @@ curl_route()
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+sleep 2
+docker container ls -a
+
 echo "faces-book: Running unit tests..."
 curl_route "/test"
 
