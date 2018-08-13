@@ -25,3 +25,6 @@ docker run \
 sleep 2
 
 docker logs ${FACES_BOOK_CONTAINER}
+
+# Simply sanity check
+curl -i -f -X GET "http://localhost:${FACES_BOOK_PORT}/"
