@@ -1,9 +1,8 @@
 #!/bin/bash
 set -e
 
-# This will need the .env SCP'd onto the delopyment VM
-# Means each team will need their own folder
-
+# This script (along with .env) must be SCP'd onto the
+# deployment VM into a unique folder/
 
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
 source ${MY_DIR}/.env
