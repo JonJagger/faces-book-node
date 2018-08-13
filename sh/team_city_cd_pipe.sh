@@ -1,8 +1,11 @@
 #!/bin/bash
 set -e
 
+# This will need the .env SCP'd onto the delopyment VM
+
+
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
-source ${MY_DIR}/../.env
+source ${MY_DIR}/.env
 
 docker pull ${DOCKER_REGISTRY_URL}/${FACES_BOOK_IMAGE}
 
