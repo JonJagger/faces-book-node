@@ -10,6 +10,7 @@ readonly CURL_LOG="/tmp/faces-book-curl.log"
 
 curl_route()
 {
+  echo "cURLing... "http://${IP}:${FACES_BOOK_PORT}${route}"
   route=$1
   curl -i -f -X GET "http://${IP}:${FACES_BOOK_PORT}${route}" &> ${CURL_LOG}
   status=$?
