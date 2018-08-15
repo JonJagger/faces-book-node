@@ -4,16 +4,6 @@
 - Their name will appear.
 - Were you right?
 
-After cloning this repo, assuming you're on a box running docker...
-```
-./faces-book-node/sh/docker_pipe.sh
-```
-- Your docker container will now be up on port 80
-- To find your public IP address you can use
-```
-curl ifconfig.me
-```
-
 Implemented using
 [Node](https://nodejs.org/en/),
 [Express](https://expressjs.com/) and
