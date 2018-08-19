@@ -2,7 +2,7 @@
 set -e
 
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
-source ${MY_DIR}/.env
+source ${MY_DIR}/env-vars.sh
 
 readonly IP=${1:-localhost}
 readonly CURL_LOG="/tmp/faces-book-curl.log"
@@ -11,16 +11,15 @@ readonly CURL_LOG="/tmp/faces-book-curl.log"
 
 curl_route()
 {
-  route=$1
-  echo "cURLing... http://${IP}:${FACES_BOOK_PORT}${route}"
-  curl -i -f -X GET "http://${IP}:${FACES_BOOK_PORT}${route}" &> ${CURL_LOG}
-  status=$?
-  if [ "${status}" -eq "0" ]; then
-    echo "PASS ${status} ${route}"
+  local route=$1
+  local url="http://${IP}:${FACES_BOOK_PORT}${route}"
+  if curl --fail -X GET "${url}" &> ${CURL_LOG}; then
+    echo "PASS ${url}"
   else
-    echo "FAIL ${status} ${route}"
+    echo "FAIL ${url}"
     cat ${CURL_LOG}
     ${MY_DIR}/logs.sh
+    exit 22
   fi
 }
 

@@ -2,7 +2,7 @@
 set -e
 
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
-source ${MY_DIR}/.env
+source ${MY_DIR}/env-vars.sh
 
 docker tag \
   ${FACES_BOOK_IMAGE} \

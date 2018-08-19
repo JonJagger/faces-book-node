@@ -2,7 +2,7 @@
 set -e
 
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
-source ${MY_DIR}/.env
+source ${MY_DIR}/env-vars.sh
 
 docker build \
   --build-arg REPO_URL=$(git config --get remote.origin.url) \

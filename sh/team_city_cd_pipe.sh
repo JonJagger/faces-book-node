@@ -5,7 +5,7 @@ set -ex
 # the deployment VM into a unique folder/
 
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
-source ${MY_DIR}/.env
+source ${MY_DIR}/env-vars.sh
 
 echo "Pull the image from the repository"
 docker pull ${DOCKER_REGISTRY_URL}/${FACES_BOOK_IMAGE}
